@@ -164,7 +164,7 @@ class _LoginPageState extends State<_LoginPage> {
                         Expanded(
                           child: TextButton(
                               onPressed: () {
-                                Navigator.pushNamed(context, "routeName");
+                                Navigator.pushNamed(context, AppRoute.rForgot);
                               },
                               child: const Text(
                                 "Forgot Password ?",
@@ -247,7 +247,6 @@ class _LoginPageState extends State<_LoginPage> {
           .signInWithEmailAndPassword(
               email: _emailController.text, password: _passwordController.text)
           .then((value) async {
-        // print(value.user!.getIdToken());
         Navigator.pushNamed(context, AppRoute.rHome);
       });
     } on FirebaseAuthException catch (e) {
