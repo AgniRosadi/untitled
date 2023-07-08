@@ -40,7 +40,7 @@ class _MainPageState extends State<MainPage> {
   initState() {
     super.initState();
     Future.delayed(Duration.zero, () {
-      // _requestPermission(context);
+      _toPage(context);
     });
   }
 
@@ -55,19 +55,17 @@ class _MainPageState extends State<MainPage> {
           ),
         ));
   }
-
 }
-Future<void> _toPage(BuildContext context) async{
- AppSharedPrefs.isLoggedIn().then((login) {
-    if(login){
+
+Future<void> _toPage(BuildContext context) async {
+  AppSharedPrefs.isLoggedIn().then((login) {
+    if (login) {
       Future.delayed(const Duration(milliseconds: 200), () async {
         Navigator.pushReplacementNamed(context, AppRoute.rHome);
       });
-    }else{
+    } else {
       Navigator.pushReplacementNamed(context, AppRoute.rLogin);
     }
   });
 // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => FormPerbaikan()));
 }
-
-
